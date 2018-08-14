@@ -47,7 +47,7 @@ export default {
     overflow hidden
     width 100%
     height 0
-    padding-bottom 31.25%
+    padding-bottom 26.7%
     //宽高比例31.25%   或者31.25vw 但是兼容不好
     .swiper-img
       width 100%
