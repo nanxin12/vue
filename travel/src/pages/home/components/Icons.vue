@@ -3,7 +3,9 @@
      <swiper :options="swiperOption">
        <swiper-slide v-for="(page, index) of pages" :key="index">
           <div class="icon"  v-for="item in page" :key="item.id">
-            <div class="icon-img"><img class="icon-img-center" :src="item.iconimg" alt=""></div>
+            <div class="icon-img">
+              <img class="icon-img-center" :src="item.iconimg" alt="">
+            </div>
             <p class="icon-text">{{item.icontext}}</p>
           </div>
        </swiper-slide>
@@ -59,8 +61,7 @@ export default {
         }
       ],
       swiperOption: {
-        pagination: '.swiper-pagination',
-        loop: 'true'
+        pagination: '.swiper-pagination'
       }
     }
   },
@@ -85,7 +86,6 @@ export default {
   .icons
     height 0
     padding-bottom 50%
-    background  pink
     .icon
       float left
       height 0
