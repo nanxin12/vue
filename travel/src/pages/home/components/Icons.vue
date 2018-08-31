@@ -15,8 +15,14 @@
 
 <script>
 export default {
+  props: {
+    icons: {
+      type: Array
+    }
+  },
   data () {
     return {
+      num: [],
       iconlist: [
         {
           iconimg: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
@@ -65,10 +71,16 @@ export default {
       }
     }
   },
+  watch: {
+    num (x, y) {
+      this.num = this.icons
+      console.log(this.num)
+    }
+  },
   computed: {
     pages () {
       const pages = []
-      this.iconlist.forEach((item, index) => {
+      this.icons.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []

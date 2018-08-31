@@ -18,29 +18,12 @@
 
 <script>
 export default {
+  props: {
+    remcommend: Array
+  },
   data () {
     return {
-      remcommend: [{
-        id: '001',
-        imgurl: 'http://img1.qunarzz.com/sight/p0/1709/3c/3cdce4296a3df57fa3.img.jpg_200x200_96983e81.jpg',
-        title: '鄂尔多斯草原旅游区',
-        desc: '123456789789456123'
-      }, {
-        id: '002',
-        imgurl: 'http://img1.qunarzz.com/sight/p0/1709/3c/3cdce4296a3df57fa3.img.jpg_200x200_96983e81.jpg',
-        title: '鄂尔多斯草原旅游区',
-        desc: '123456789789456123'
-      }, {
-        id: '003',
-        imgurl: 'http://img1.qunarzz.com/sight/p0/1709/3c/3cdce4296a3df57fa3.img.jpg_200x200_96983e81.jpg',
-        title: '鄂尔多斯草原旅游区',
-        desc: '123456789789456123'
-      }, {
-        id: '004',
-        imgurl: 'http://img1.qunarzz.com/sight/p0/1709/3c/3cdce4296a3df57fa3.img.jpg_200x200_96983e81.jpg',
-        title: '鄂尔多斯草原旅游区',
-        desc: '123456789789456123'
-      }]
+
     }
   }
 }
