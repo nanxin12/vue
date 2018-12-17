@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
       <swiper-slide v-for="item in swiperlist" :key="item.id">
-        <img class="swiper-img" :src="item.imgsrc" alt="">
+        <img class="swiper-img" :src="item.imgUrl" alt="">
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
       <!-- <div class="swiper-button-prev" slot="button-prev"></div> 上按钮
@@ -47,7 +47,7 @@ export default {
   overflow: hidden;
   width: 100%;
   height: 0;
-  padding-bottom: 26.7%;
+  padding-bottom: 30.7%;
 
   // 宽高比例31.25%   或者31.25vw 但是兼容不好
   .swiper-img {

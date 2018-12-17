@@ -4,7 +4,7 @@
   <ul>
     <li class="item border-bottom" v-for="item of remcommend" :key="item.id">
       <div class="item-img-wrap">
-        <img class="item-img" :src="item.imgurl" alt="">
+        <img class="item-img" :src="item.imgUrl" alt="">
       </div>
       <div class="item-info">
         <p class="item-title">{{item.title}}</p>

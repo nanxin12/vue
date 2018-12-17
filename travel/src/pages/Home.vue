@@ -4,10 +4,10 @@
     <home-swiper :swiperlist="swiperlist"></home-swiper>
     <icons :icons="icons"></icons>
     <recommend :remcommend="remcommend"></recommend>
-    <weekend :remcommend="remcommend"></weekend>
+    <weekend :weekendList="weekendList"></weekend>
   </div>
 </template>
-
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=3qkFf2G2rUbWKsNYmc2dDvL7"></script>
 <script>
 import HomeHeader from './home/components/Header'
 import HomeSwiper from './home/components/Swiper'
@@ -22,7 +22,8 @@ export default {
       icons: [],
       city: '',
       swiperlist: [],
-      remcommend: []
+      remcommend: [],
+      weekendList: []
     }
   },
   components: {
@@ -34,17 +35,36 @@ export default {
   },
   mounted () {
     this.getHomeInfo()
+    this.getCity()
   },
   methods: {
     getHomeInfo () {
       Axios.get('/api/index.json').then(this.axiosSucc)
     },
     axiosSucc (res) {
-      const data = res.data
-      this.city = data.city
-      this.icons = data.iconlist
-      this.swiperlist = data.swiperlist
-      this.remcommend = data.remcommend
+      const data = res.data.data
+      this.icons = data.iconList
+      this.swiperlist = data.swiperList
+      this.remcommend = data.recommendList
+      this.weekendList = data.weekendList
+    },
+    getCity () {
+      // localStorage.removeItem('hotCiyt') 删除localStorage里的存的某个数据
+      let noCity = () => {
+        alert(1)
+        let myFun = (result) => {
+          this.city = result.name
+          this.$store.dispatch('changeCity', this.city) // 出发actions里的事件 用dispatch方法
+          sessionStorage.setItem('hotCity', this.city)
+        }
+        let myCity = new BMap.LocalCity()
+        myCity.get(myFun)
+      }
+      let haveCity = () => {
+        this.city = sessionStorage.getItem('hotCity')
+        this.$store.dispatch('changeCity', this.city)
+      }
+      sessionStorage.getItem('hotCity') ? haveCity() : noCity()
     }
   }
 }

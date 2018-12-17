@@ -5,7 +5,7 @@
     </div>
     <div class="header-input">
       <span class="iconfont">&#xe632;</span>输入城市/景点/游玩主题</div>
-    <router-link to="/city">
+    <router-link :to="{ path: '/city'}">
       <div class="header-right">{{city}}
         <span class="iconfont arrow-icon">&#xe64a;</span>
       </div>

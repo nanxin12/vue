@@ -2,9 +2,9 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of remcommend" :key="item.id">
+      <li class="item border-bottom" v-for="item of weekendList" :key="item.id">
         <div class="item-img-wrap">
-          <img class="item-img" :src="item.imgurl" alt="">
+          <img class="item-img" :src="item.imgUrl" alt="">
         </div>
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -18,7 +18,7 @@
 <script>
 export default {
   props: {
-    remcommend: Array
+    weekendList: Array
   },
   data () {
     return {
