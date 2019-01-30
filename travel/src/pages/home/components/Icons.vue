@@ -2,7 +2,7 @@
   <div class="icons">
      <swiper :options="swiperOption">
        <swiper-slide v-for="(page, index) of pages" :key="index">
-          <div class="icon"  v-for="item in page" :key="item.id">
+          <div class="icon"  v-for="item in page" :key="item.id" @click="b">
             <div class="icon-img">
               <img class="icon-img-center" :src="item.imgUrl" alt="">
             </div>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: {
     icons: {
@@ -89,6 +90,20 @@ export default {
       })
       return pages
     }
+  },
+  methods: {
+    b () {
+      // this.$store.state.nx = 11  //直接修改state里的数据 不建议
+      // this.$store.commit('changeNx', 3) // 直接调用Mutations是的方法修改state里的数据
+      // this.$store.dispatch('changeNx', 99) // 用dispatch方法 触发actions里的事件 actions里又调用Mutations
+      // this.changeNx(2)
+      this.changeNx(88)
+      setTimeout(() => {
+        console.log(this.$store.state.nx)
+      }, 3000)
+    },
+    ...mapActions(['changeNx'])
+    // ...mapMutations(['changeNx'])
   }
 }
 </script>

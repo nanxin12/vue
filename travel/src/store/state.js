@@ -1,3 +1,4 @@
 export default ({
-  hotCity: ''
+  hotCity: '',
+  nx: 0
 })

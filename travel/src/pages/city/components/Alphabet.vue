@@ -32,9 +32,6 @@ export default {
       this.touchStatus = true
     },
     handleTouchMove (e) {
-      if(this.touchStatus) {
-        
-      }
     },
     handleTouchEnd (e) {
       this.touchStatus = false
